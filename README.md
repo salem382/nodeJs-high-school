@@ -90,10 +90,27 @@ The application should now be running on `http://localhost:5000`.
 
 
 ### Assignment
-- `localhost:5000/lesson` (post): add lesson.
-- `localhost:5000/lesson/id` (put): update lesson.
-- `localhost:5000/lesson/id` (put): delete lesson.
-- `localhost:5000/lesson` (get): get all lessons.
+- `localhost:5000/assignment` (post): add assignment.
+- `localhost:5000/assignment/id` (put): update assignment.
+- `localhost:5000/assignment/id` (put): delete assignment.
+- `localhost:5000/assignment` (get): get all assignment.
+
+### Assignment
+- `localhost:5000/assignment` (post): add assignment.
+- `localhost:5000/assignment/id` (put): update assignment.
+- `localhost:5000/assignment/id` (put): delete assignment.
+- `localhost:5000/assignment` (get): get all assignment.
+
+### question
+- `localhost:5000/question` (post): add question.
+- `localhost:5000/question/id` (put): update question.
+- `localhost:5000/question/id` (put): delete question.
+- `localhost:5000/question` (get): get all question.
+
+
+### Result
+- `localhost:5000/result` (post): send result.
+- `localhost:5000/result` (get): get result.
 
 
 
