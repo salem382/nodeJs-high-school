@@ -1,4 +1,4 @@
-# Educational website Noon clone
+# Educational website high School
 
 The high school project is a web application developed using Node.js and MongoDB. It provides a platform for high school students to access educational materials and assignments based on their educational stage and subject classification.
 
