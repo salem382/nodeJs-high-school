@@ -1,6 +1,6 @@
-# ECommerce Website Noon Clone
+# Educational website Noon clone
 
-Welcome to Noon Clone ! This is a web application built with Node.js and Mongoose that allows users to browse and purchase products,   add products to wishlist, apply coupons,add review for product how buy it , manage their cart, and make cash or Stripe payments for their orders.
+The high school project is a web application developed using Node.js and MongoDB. It provides a platform for high school students to access educational materials and assignments based on their educational stage and subject classification.
 
 ## Table of Contents
 
@@ -14,12 +14,13 @@ Welcome to Noon Clone ! This is a web application built with Node.js and Mongoos
 
 ## Features
 
-- User registration and authentication
-- Product browsing and searching by category and subcategory
-- Brand management for products
-- Coupon system for discounts
-- Shopping cart functionality
-- Cash on delivery and Stripe payment options for orders
+- User authentication and registration
+- Subject selection based on educational stage and classification
+- Access to study materials (videos, PDFs) for each subject, unit, and lesson
+- Assignment solving and degree tracking
+- Profile updates and display of teaching staff
+- Messaging system for users to communicate with the admin
+
 
 ## Prerequisites
 
@@ -52,84 +53,49 @@ The application should now be running on `http://localhost:5000`.
 
 ## API Endpoints
 
-### Auth
-- `localhost:5000/api/v1/auth/signup` (post): sign up.
-- `localhost:5000/api/v1/auth/signin` (post): sign in.
+### auth
+- `localhost:5000/user/signup` (post): sign up.
+- `localhost:5000/user/login` (sign in): sign in.
 
 ### user
-- `localhost:5000/api/v1/user?page=1` (GET): Get a list of all users.
-- `localhost:5000/api/v1/user` (post): add user.
-- `localhost:5000/api/v1/user/id` (GET): get spcific user.
-- `localhost:5000/api/v1/user/id` (put): update user.
-- `localhost:5000/api/v1/user/id` (delete): delete user.
-### Category
-- `localhost:5000/api/v1/category?page=1` (GET): Get a list of all categories.
-- `localhost:5000/api/v1/category` (post): add category.
-- `localhost:5000/api/v1/category/id` (GET): get spcific category.
-- `localhost:5000/api/v1/category/id` (put): update category.
-- `localhost:5000/api/v1/category/id` (delete): delete category.
+- `localhost:5000/user` (put): update profile.
 
-### subCategory
-- `localhost:5000/api/v1/subCategory?page=1` (GET): Get a list of all subCategories.
-- `localhost:5000/api/v1/subCategory` (post): add subCategory.
-- `localhost:5000/api/v1/subCategory/id` (GET): get spcific subCategory.
-- `localhost:5000/api/v1/subCategory/id` (put): update subCategory.
-- `localhost:5000/api/v1/subCategory/id` (delete): delete subCategory.
+### teacher
+- `localhost:5000/teacher` (post): add teacher.
+- `localhost:5000/teacher/id` (put): update teacher.
+- `localhost:5000/teacher/id` (put): delete teacher.
+- `localhost:5000/teacher` (get): get all teachers.
 
-### Brand
-- `localhost:5000/api/v1/brand?page=1` (GET): Get a list of all brand.
-- `localhost:5000/api/v1/brand` (post): add brand.
-- `localhost:5000/api/v1/brand/id` (GET): get spcific brand.
-- `localhost:5000/api/v1/brand/id` (put): update brand.
-- `localhost:5000/api/v1/brand/id` (delete): delete brand.
+### contact
+- `localhost:5000/contact` (post):send message.
+- `localhost:5000/contact` (get): get all messages.
 
-### product
-- `localhost:5000/api/v1/product?page=1` (GET): Get a list of all products.
-- `localhost:5000/api/v1/product` (post): add product.
-- `localhost:5000/api/v1/product/id` (GET): get spcific product.
-- `localhost:5000/api/v1/product/id` (put): update product.
-- `localhost:5000/api/v1/product/id` (delete): delete product.
+### subjects
+- `localhost:5000/subject` (post): add subject.
+- `localhost:5000/subject/id` (put): update subject.
+- `localhost:5000/subject/id` (put): delete subject.
+- `localhost:5000/subject` (get): get all subject.
 
-### Review
-- `localhost:5000/api/v1/review?page=1` (GET): Get a list of all review.
-- `localhost:5000/api/v1/review` (post): add review.
-- `localhost:5000/api/v1/review/id` (GET): get spcific review.
-- `localhost:5000/api/v1/review/id` (put): update review.
-- `localhost:5000/api/v1/review/id` (delete): delete review.
+### units
+- `localhost:5000/unit` (post): add unit.
+- `localhost:5000/unit/id` (put): update unit.
+- `localhost:5000/unit/id` (put): delete unit.
+- `localhost:5000/unit` (get): get all units.
 
-### wishlist
-- `localhost:5000/api/v1/wishlist` (post): add wishlist.
-- `localhost:5000/api/v1/wishlist/id` (put): update wishlist.
-- `localhost:5000/api/v1/wishlist/id` (delete): delete wishlist.
+### lessons
+- `localhost:5000/lesson` (post): add lesson.
+- `localhost:5000/lesson/id` (put): update lesson.
+- `localhost:5000/lesson/id` (put): delete lesson.
+- `localhost:5000/lesson` (get): get all lessons.
 
-### Address
-- `localhost:5000/api/v1/address` (GET): Get a list of all wishlist.
-- `localhost:5000/api/v1/address` (post): add wishlist.
-- `localhost:5000/api/v1/address/id` (GET): get spcific wishlist.
-- `localhost:5000/api/v1/address/id` (put): update wishlist.
-- `localhost:5000/api/v1/address/id` (delete): delete wishlist.
 
-### Coupon
-- `localhost:5000/api/v1/coupon` (GET): Get a list of all coupon.
-- `localhost:5000/api/v1/coupon` (post): add coupon.
-- `localhost:5000/api/v1/coupon/id` (GET): get spcific coupon.
-- `localhost:5000/api/v1/coupon/id` (put): update coupon.
-- `localhost:5000/api/v1/coupon/id` (delete): delete coupon.
+### Assignment
+- `localhost:5000/lesson` (post): add lesson.
+- `localhost:5000/lesson/id` (put): update lesson.
+- `localhost:5000/lesson/id` (put): delete lesson.
+- `localhost:5000/lesson` (get): get all lessons.
 
-### cart 
-- `localhost:5000/api/v1/cart` (post): add to cart.
-- `localhost:5000/api/v1/cart/id` (delete): delete from cart.
-- `localhost:5000/api/v1/cart/id` (post): set quantity.
-- `localhost:5000/api/v1/cart/applyCouopn` (post): apply cioipon for discount.
-- `localhost:5000/api/v1/cart` (get): get cart.
 
-### order 
-
-- `localhost:5000/api/v1/order/id` (post): cash order.
-- `localhost:5000/api/v1/order/id` (get): get spcific order.
-- `localhost:5000/api/v1/order` (get): get all order.
-- `localhost:5000/api/v1/cart/applyCouopn` (post): apply cioipon for discount.
-- `localhost:5000/api/v1/order/checkOutSession/id` (post): create checkout session.
 
 
 ## Contributing
