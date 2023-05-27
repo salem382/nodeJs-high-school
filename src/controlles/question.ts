@@ -11,7 +11,6 @@ class Question {
 
             const {body, choice_a, choice_b, choice_c, choice_d, correct_ans, grade, assignment_id} = req.body;
             const question = await QuestionModel.insertMany({body, choice_a, choice_b, choice_c, choice_d, correct_ans, grade, assignment_id});
-            await AssignmentModel.findByIdAndUpdate(assignment_id, {$push:{questions:[question[0]._id]}})
             return res.json({message:"success"});
         })(req, res, next);
     }

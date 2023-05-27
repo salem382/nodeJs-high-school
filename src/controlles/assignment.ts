@@ -27,7 +27,7 @@ class Assignment {
 
 
             const {id} = req.params;
-            const quizes =  await AssignmentModel.find({lesson_id:id}).populate('questions');
+            const quizes =  await AssignmentModel.find({lesson_id:id});
             if (!quizes.length) return next(new AppError('no quizes for this lessons', 404));
             return res.json({message:"success", quizes});
         })(req, res, next);

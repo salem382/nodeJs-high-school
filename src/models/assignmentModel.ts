@@ -14,10 +14,20 @@ const AssignmentSchema: Schema<Assignment> = new mongoose.Schema({
     lesson_id:{
         type:Schema.Types.ObjectId
     },
-    questions:[{type:Schema.Types.ObjectId, ref:'Question'}],
     total_grade:{
         type:String
     }
+}, {timestamps:true, toJSON:{virtuals:true}, toObject:{virtuals:true}});
+
+
+AssignmentSchema.virtual('myQuestions', {
+    ref: 'Question',
+    localField: '_id',
+    foreignField: 'assignment_id'
+})
+
+AssignmentSchema.pre(/^find/, function() {
+    this.populate('myQuestions');
 });
 
 
