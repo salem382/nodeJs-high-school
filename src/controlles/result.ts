@@ -11,9 +11,9 @@ class Result {
         catchError(async (req:any, res:Response, next:NextFunction) => {
 
             const {assignment_id, answers} = req.body;
-            const assignment = await AssignmentModel.findById(assignment_id).populate('questions');
+            const assignment = await AssignmentModel.findById(assignment_id);
             if (!assignment) return next(new AppError('this assignment id not found', 404));
-            const questions = await QuestionModel.find({assignment_id}).populate('assignment_id');
+            const questions = await QuestionModel.find({assignment_id});
             if (!questions.length) return next(new AppError('no questions for this assignment', 404));
             
             let student_grade:number = 0;

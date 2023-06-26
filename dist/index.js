@@ -75,4 +75,4 @@ app.use(ApiError_1.errorHandler);
 process.on('unhandledRejection', () => {
     console.log("errrr222");
 });
-app.listen(5000, () => console.log("server is running"));
+app.listen(process.env.PORT || 3000, () => console.log("server is running"));

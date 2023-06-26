@@ -20,10 +20,10 @@ class Result {
     addResult(req, res, next) {
         (0, ApiError_1.catchError)((req, res, next) => __awaiter(this, void 0, void 0, function* () {
             const { assignment_id, answers } = req.body;
-            const assignment = yield assignmentModel_1.default.findById(assignment_id).populate('questions');
+            const assignment = yield assignmentModel_1.default.findById(assignment_id);
             if (!assignment)
                 return next(new ApiError_1.AppError('this assignment id not found', 404));
-            const questions = yield questionModels_1.default.find({ assignment_id }).populate('assignment_id');
+            const questions = yield questionModels_1.default.find({ assignment_id });
             if (!questions.length)
                 return next(new ApiError_1.AppError('no questions for this assignment', 404));
             let student_grade = 0;

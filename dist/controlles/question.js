@@ -13,14 +13,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const ApiError_1 = require("../utils/ApiError");
-const assignmentModel_1 = __importDefault(require("../models/assignmentModel"));
 const questionModels_1 = __importDefault(require("../models/questionModels"));
 class Question {
     addQuestion(req, res, next) {
         (0, ApiError_1.catchError)((req, res, next) => __awaiter(this, void 0, void 0, function* () {
             const { body, choice_a, choice_b, choice_c, choice_d, correct_ans, grade, assignment_id } = req.body;
             const question = yield questionModels_1.default.insertMany({ body, choice_a, choice_b, choice_c, choice_d, correct_ans, grade, assignment_id });
-            yield assignmentModel_1.default.findByIdAndUpdate(assignment_id, { $push: { questions: [question[0]._id] } });
             return res.json({ message: "success" });
         }))(req, res, next);
     }

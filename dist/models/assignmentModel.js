@@ -31,10 +31,17 @@ const AssignmentSchema = new mongoose_1.default.Schema({
     lesson_id: {
         type: mongoose_1.Schema.Types.ObjectId
     },
-    questions: [{ type: mongoose_1.Schema.Types.ObjectId, ref: 'Question' }],
     total_grade: {
         type: String
     }
+}, { timestamps: true, toJSON: { virtuals: true }, toObject: { virtuals: true } });
+AssignmentSchema.virtual('myQuestions', {
+    ref: 'Question',
+    localField: '_id',
+    foreignField: 'assignment_id'
+});
+AssignmentSchema.pre(/^find/, function () {
+    this.populate('myQuestions');
 });
 const AssignmentModel = mongoose_1.default.model('Assignment', AssignmentSchema);
 exports.default = AssignmentModel;

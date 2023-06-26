@@ -16,7 +16,7 @@ exports.hashPassword = exports.verifyPassword = exports.generateToken = void 0;
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const generateToken = (payload) => {
-    return jsonwebtoken_1.default.sign(payload, 'myNameIsUser');
+    return jsonwebtoken_1.default.sign(payload, process.env.SECRET_KEY || "ahmedSalem");
 };
 exports.generateToken = generateToken;
 function verifyPassword(plainPassword, hashedPassword) {
@@ -26,6 +26,6 @@ function verifyPassword(plainPassword, hashedPassword) {
 }
 exports.verifyPassword = verifyPassword;
 const hashPassword = (password) => {
-    return bcrypt_1.default.hashSync(password, 8);
+    return bcrypt_1.default.hashSync(password, Number(process.env.ROUND));
 };
 exports.hashPassword = hashPassword;
